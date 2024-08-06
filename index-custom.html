@@ -5,17 +5,145 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>File Upload with Progress Bar | CodingNepal</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <style>
+      .quick_file_up {
+        width: 430px;
+        position: fixed;
+        right: 16px;
+        top: 16px;
+        background: #eeeeee;
+        border-radius: 5px;
+        padding: 30px;
+        box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .quick_file_up .quick_file_up__header {
+        color: #6990f2;
+        font-size: 27px;
+        font-weight: 600;
+        text-align: center;
+      }
+      .quick_file_up .quick_file_up__form {
+        height: 167px;
+        display: flex;
+        cursor: pointer;
+        margin: 30px 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 5px;
+        border: 2px dashed #6990f2;
+      }
+      .quick_file_up .quick_file_up__input {
+      }
+      .quick_file_up .quick_file_up__text {
+        margin-top: 15px;
+        font-size: 16px;
+      }
+      .quick_file_up .quick_file_up__uploaded-area {
+      }
+
+      .quick_file_up__progress-area .progress-area__row,
+      .quick_file_up__uploaded-area .uploaded-area__row {
+        margin-bottom: 10px;
+        background: #e9f0ff;
+        list-style: none;
+        padding: 15px 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .quick_file_up__progress-area
+        .progress-area__row
+        .progress-area__content {
+        width: 100%;
+        margin-left: 15px;
+      }
+      .quick_file_up__progress-area
+        .progress-area__row
+        .progress-area__details {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+        justify-content: space-between;
+      }
+      .quick_file_up__progress-area
+        .progress-area__row
+        .progress-area__details
+        span {
+        font-size: 14px;
+      }
+
+      .quick_file_up__progress-area
+        .progress-area__content
+        .progress-area__progress-bar {
+        height: 6px;
+        width: 100%;
+        margin-bottom: 4px;
+        background: #fff;
+        border-radius: 30px;
+      }
+
+      .quick_file_up__progress-area
+        .progress-area__content
+        .progress-area__progress-bar
+        .progress-area__progress {
+        height: 100%;
+        width: 0%;
+        background: #6990f2;
+        border-radius: inherit;
+      }
+
+      .quick_file_up__progress-area
+        .progress-area__row
+        .progress-area__content
+        .progress-area__progress-bar
+        .progress-area__progress {
+        height: 100%;
+        width: 0%;
+        background: #6990f2;
+        border-radius: inherit;
+      }
+
+      .quick_file_up__uploaded-area {
+        max-height: 232px;
+        overflow-y: scroll;
+      }
+      .quick_file_up__uploaded-area.onprogress {
+        max-height: 150px;
+      }
+      .quick_file_up__uploaded-area::-webkit-scrollbar {
+        width: 0px;
+      }
+      .quick_file_up__uploaded-area
+        .uploaded-area__row
+        .uploaded-area__content {
+        display: flex;
+        align-items: center;
+      }
+      .quick_file_up__uploaded-area
+        .uploaded-area__row
+        .uploaded-area__details {
+        display: flex;
+        margin-left: 15px;
+        flex-direction: column;
+      }
+      .quick_file_up__uploaded-area
+        .uploaded-area__row
+        .uploaded-area__details
+        .uploaded-area__size {
+        color: #404040;
+        font-size: 11px;
+      }
+    </style>
   </head>
   <body>
-    <div class="wrapper">
-      <header>File Uploader JavaScript</header>
-      <form action="#">
-        <input class="file-input" type="file" name="file" hidden />
+    <div class="quick_file_up">
+      <header class="quick_file_up__header">File Uploader JavaScript</header>
+      <form action="#" class="quick_file_up__form">
+        <input class="quick_file_up__input" type="file" name="file" hidden />
         <div>
           <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
           <svg
@@ -30,13 +158,12 @@
             />
           </svg>
         </div>
-        <p>Browse File to Upload</p>
+        <p class="quick_file_up__text">Browse File to Upload</p>
       </form>
-      <section class="progress-area"></section>
-      <section class="uploaded-area"></section>
+      <section class="quick_file_up__progress-area"></section>
+      <section class="quick_file_up__uploaded-area"></section>
     </div>
 
-
-    <script src="script.js"></script>
+    <script src="script-custom.js"></script>
   </body>
 </html>
