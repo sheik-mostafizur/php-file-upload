@@ -10,8 +10,8 @@ function quickFileMain() {
     main_areaClose: document.querySelector(
       ".quick_file_up .quick_file_up__handler-close"
     ),
-    form: document.querySelector(".quick_file_up .quick_file_up__form"),
-    input_file: document.querySelector(".quick_file_up .quick_file_up__input"),
+    form: document.querySelector(".quick_file_up__form"),
+    input_file: document.querySelector(".quick_file_up__input"),
     progress: document.querySelector(
       ".quick_file_up .quick_file_up__progress-area"
     ),
@@ -29,9 +29,7 @@ function quickFileMain() {
   });
   // end Handle show and hide area
 
-  quickFileUpElements.form.addEventListener("click", function () {
-    quickFileUpElements.input_file.click();
-  });
+  quickFileUpElements.input_file.click();
 
   quickFileUpElements.input_file.onchange = ({ target }) => {
     let file = target.files[0]; //getting file [0] this means if user has selected multiple files then get first one only
