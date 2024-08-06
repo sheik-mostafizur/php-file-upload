@@ -41,7 +41,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .quick_file_up_area.active {
-  width: 430px;
+  width: 350px;
   height: auto;
   visibility: unset;
 }

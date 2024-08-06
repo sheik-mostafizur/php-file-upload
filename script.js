@@ -1,8 +1,14 @@
 class QuickFileUp {
-  constructor({ form = null, input = null, isInputHidden = false } = {}) {
+  constructor({
+    form = null,
+    input = null,
+    isInputHidden = false,
+    parentForInputHidden = null,
+  } = {}) {
     this.form = form;
     this.input = input;
     this.isInputHidden = isInputHidden;
+    this.parentForInputHidden = parentForInputHidden;
     this.init();
   }
 
@@ -79,6 +85,7 @@ class QuickFileUp {
         ".quick_file_up .quick_file_up__handler-close"
       ),
       form: document.querySelector(this.form),
+      parentForInputHidden: document.querySelector(this.parentForInputHidden),
       input_file: document.querySelector(this.input),
       progress: document.querySelector(
         ".quick_file_up .quick_file_up__progress-area"
@@ -97,7 +104,16 @@ class QuickFileUp {
     });
     // end Handle show and hide area
 
-    quickFileUpElements.input_file.click();
+    if (this.isInputHidden) {
+      quickFileUpElements.parentForInputHidden.addEventListener(
+        "click",
+        function () {
+          quickFileUpElements.input_file.click();
+        }
+      );
+    } else {
+      quickFileUpElements.input_file.click();
+    }
 
     quickFileUpElements.input_file.onchange = ({ target }) => {
       let file = target.files[0]; //getting file [0] this means if user has selected multiple files then get first one only
@@ -245,9 +261,10 @@ class QuickFileUp {
 // Call main function
 window.onload = function () {
   const config = {
-    form: ".quick_file_up__form",
-    input: ".quick_file_up__input",
-    isInputHidden: false,
+    form: ".another",
+    input: ".another_input",
+    isInputHidden: true,
+    parentForInputHidden: ".hidden_area",
   };
   const qfu = new QuickFileUp(config);
   console.log(qfu);
