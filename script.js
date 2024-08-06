@@ -14,7 +14,9 @@ class QuickFileUp {
 
   init() {
     if (this.form || this.input) {
-      this.main();
+      if (!document.querySelector(".quick_file_up")) {
+        this.main();
+      }
       this.quickFileMain();
     }
   }
@@ -23,7 +25,6 @@ class QuickFileUp {
     const div = document.createElement("div");
     div.classList.add("quick_file_up");
     div.innerHTML = `
-    <div class="quick_file_up">
       <div class="quick_file_up__handler">
         <!--?xml version="1.0" encoding="utf-8"?--><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
         <svg
@@ -71,10 +72,9 @@ class QuickFileUp {
           <section class="quick_file_up__uploaded-area"></section>
         </div>
       </div>
-    </div>
 `;
 
-    document.body.appendChild(div);
+    document.body.prepend(div);
   }
 
   quickFileMain() {
@@ -266,6 +266,10 @@ window.onload = function () {
     isInputHidden: true,
     parentForInputHidden: ".hidden_area",
   };
-  const qfu = new QuickFileUp(config);
-  console.log(qfu);
+  new QuickFileUp(config);
+
+  new QuickFileUp({
+    form: ".quick_file_up__form",
+    input: ".quick_file_up__input",
+  });
 };
