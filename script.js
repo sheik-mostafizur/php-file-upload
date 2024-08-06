@@ -1,190 +1,16 @@
 class QuickFileUp {
-  constructor(startUp = true) {
-    this.startUp = startUp;
+  constructor({ form = null, input = null, isInputHidden = false } = {}) {
+    this.form = form;
+    this.input = input;
+    this.isInputHidden = isInputHidden;
     this.init();
   }
 
   init() {
-    const style = document.createElement("style");
-
-    style.textContent = `
-      .quick_file_up {
-        position: fixed;
-        right: 16px;
-        top: 16px;
-        z-index: 9999;
-      }
-      .quick_file_up .quick_file_up__handler {
-        cursor: pointer;
-        height: 40px;
-        width: 40px;
-        overflow: hidden;
-        transform: translateY(0);
-        animation: up_down_cloud 2s infinite;
-      }
-      .quick_file_up .quick_file_up__handler svg {
-        width: 100%;
-        object-fit: contain;
-      }
-      @keyframes up_down_cloud {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(6px);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
-
-      .quick_file_up_area {
-        width: 0px;
-        height: 0px;
-        visibility: hidden;
-
-        position: fixed;
-        right: 16px;
-        top: 16px;
-        background: #fcfcfc;
-        border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      }
-      .quick_file_up_area.active {
-        width: 430px;
-        height: auto;
-        visibility: unset;
-      }
-      .quick_file_up_area .quick_file_up__handler-close {
-        cursor: pointer;
-        text-align: right;
-        width: 16px;
-        padding: 8px;
-        margin-left: auto;
-        margin-bottom: -20px;
-        margin-right: 20px;
-        transform: translateY(20px);
-      }
-
-      .quick_file_up .quick_file_up__header {
-        color: #6990f2;
-        font-size: 20px;
-        font-weight: 600;
-        padding: 1rem;
-        border-bottom: 1px solid #eee;
-      }
-
-      .quick_file_up .quick_file_up__form {
-        height: 167px;
-        display: flex;
-        cursor: pointer;
-        margin: 30px 0;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        border-radius: 5px;
-        border: 2px dashed #6990f2;
-      }
-      .quick_file_up .quick_file_up__text {
-        margin-top: 15px;
-        font-size: 16px;
-      }
-
-      .quick_file_up__progress-area .progress-area__row,
-      .quick_file_up__uploaded-area .uploaded-area__row {
-        margin-bottom: 10px;
-        background: #e9f0ff;
-        list-style: none;
-        padding: 15px 20px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .quick_file_up__progress-area
-        .progress-area__row
-        .progress-area__content {
-        width: 100%;
-        margin-left: 15px;
-      }
-      .quick_file_up__progress-area
-        .progress-area__row
-        .progress-area__details {
-        display: flex;
-        align-items: center;
-        margin-bottom: 7px;
-        justify-content: space-between;
-      }
-      .quick_file_up__progress-area
-        .progress-area__row
-        .progress-area__details
-        span {
-        font-size: 14px;
-      }
-      .quick_file_up__progress-area
-        .progress-area__content
-        .progress-area__progress-bar {
-        height: 6px;
-        width: 100%;
-        margin-bottom: 4px;
-        background: #fff;
-        border-radius: 30px;
-      }
-      .quick_file_up__progress-area
-        .progress-area__content
-        .progress-area__progress-bar
-        .progress-area__progress {
-        height: 100%;
-        width: 0%;
-        background: #6990f2;
-        border-radius: inherit;
-      }
-      .quick_file_up__progress-area
-        .progress-area__row
-        .progress-area__content
-        .progress-area__progress-bar
-        .progress-area__progress {
-        height: 100%;
-        width: 0%;
-        background: #6990f2;
-        border-radius: inherit;
-      }
-
-      .quick_file_up__uploaded-area {
-        max-height: 232px;
-        overflow-y: scroll;
-      }
-      .quick_file_up__uploaded-area.onprogress {
-        max-height: 150px;
-      }
-      .quick_file_up__uploaded-area::-webkit-scrollbar {
-        width: 0px;
-      }
-      .quick_file_up__uploaded-area
-        .uploaded-area__row
-        .uploaded-area__content {
-        display: flex;
-        align-items: center;
-      }
-      .quick_file_up__uploaded-area
-        .uploaded-area__row
-        .uploaded-area__details {
-        display: flex;
-        margin-left: 15px;
-        flex-direction: column;
-      }
-      .quick_file_up__uploaded-area
-        .uploaded-area__row
-        .uploaded-area__details
-        .uploaded-area__size {
-        color: #404040;
-        font-size: 11px;
-      }`;
-
-    document.head.appendChild(style);
-    this.main();
-    this.quickFileMain();
+    if (this.form || this.input) {
+      this.main();
+      this.quickFileMain();
+    }
   }
 
   main() {
@@ -252,8 +78,8 @@ class QuickFileUp {
       main_areaClose: document.querySelector(
         ".quick_file_up .quick_file_up__handler-close"
       ),
-      form: document.querySelector(".quick_file_up__form"),
-      input_file: document.querySelector(".quick_file_up__input"),
+      form: document.querySelector(this.form),
+      input_file: document.querySelector(this.input),
       progress: document.querySelector(
         ".quick_file_up .quick_file_up__progress-area"
       ),
@@ -418,5 +244,11 @@ class QuickFileUp {
 
 // Call main function
 window.onload = function () {
-  new QuickFileUp();
+  const config = {
+    form: ".quick_file_up__form",
+    input: ".quick_file_up__input",
+    isInputHidden: false,
+  };
+  const qfu = new QuickFileUp(config);
+  console.log(qfu);
 };
