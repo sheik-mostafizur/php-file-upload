@@ -20,12 +20,14 @@ function quickFileMain() {
     ),
   };
 
+  // start Handle show and hide area
   quickFileUpElements.handler.addEventListener("click", function () {
     quickFileUpElements.main_area.classList.add("active");
   });
   quickFileUpElements.main_areaClose.addEventListener("click", function () {
     quickFileUpElements.main_area.classList.remove("active");
   });
+  // end Handle show and hide area
 
   quickFileUpElements.form.addEventListener("click", function () {
     quickFileUpElements.input_file.click();
