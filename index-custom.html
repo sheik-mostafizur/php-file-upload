@@ -10,12 +10,12 @@
         position: fixed;
         right: 16px;
         top: 16px;
+        z-index: 9999;
       }
       .quick_file_up .quick_file_up__handler {
         cursor: pointer;
-        background-color: #fff;
-        height: 55px;
-        width: 55px;
+        height: 40px;
+        width: 40px;
         overflow: hidden;
         transform: translateY(0);
         animation: up_down_cloud 2s infinite;
@@ -46,7 +46,6 @@
         top: 16px;
         background: #fcfcfc;
         border-radius: 5px;
-        padding: 30px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
       .quick_file_up_area.active {
@@ -54,21 +53,23 @@
         height: auto;
         visibility: unset;
       }
-
       .quick_file_up_area .quick_file_up__handler-close {
         cursor: pointer;
         text-align: right;
-        width: 24px;
+        width: 16px;
+        padding: 8px;
         margin-left: auto;
-        margin-bottom: -2rem;
+        margin-bottom: -20px;
+        margin-right: 20px;
+        transform: translateY(20px);
       }
 
       .quick_file_up .quick_file_up__header {
         color: #6990f2;
-        font-size: 27px;
+        font-size: 20px;
         font-weight: 600;
-        text-align: center;
-        margin-bottom: 1rem;
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
       }
 
       .quick_file_up .quick_file_up__form {
@@ -151,6 +152,7 @@
       .quick_file_up__uploaded-area {
         max-height: 232px;
         overflow-y: scroll;
+        padding: 20px;
       }
       .quick_file_up__uploaded-area.onprogress {
         max-height: 150px;
