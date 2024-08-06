@@ -1,5 +1,15 @@
+// Call main function
+window.onload = function () {
+  quickFileMain();
+};
+
 function quickFileMain() {
   const quickFileUpElements = {
+    handler: document.querySelector(".quick_file_up .quick_file_up__handler"),
+    main_area: document.querySelector(".quick_file_up .quick_file_up_area"),
+    main_areaClose: document.querySelector(
+      ".quick_file_up .quick_file_up__handler-close"
+    ),
     form: document.querySelector(".quick_file_up .quick_file_up__form"),
     input_file: document.querySelector(".quick_file_up .quick_file_up__input"),
     progress: document.querySelector(
@@ -9,6 +19,13 @@ function quickFileMain() {
       ".quick_file_up .quick_file_up__uploaded-area"
     ),
   };
+
+  quickFileUpElements.handler.addEventListener("click", function () {
+    quickFileUpElements.main_area.classList.add("active");
+  });
+  quickFileUpElements.main_areaClose.addEventListener("click", function () {
+    quickFileUpElements.main_area.classList.remove("active");
+  });
 
   quickFileUpElements.form.addEventListener("click", function () {
     quickFileUpElements.input_file.click();
@@ -155,7 +172,3 @@ function quickFileMain() {
     xhr.send(data); //sending form data
   }
 }
-
-window.onload = function () {
-  quickFileMain();
-};
