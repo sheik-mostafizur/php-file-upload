@@ -260,6 +260,13 @@ class QuickFileUp {
 
 // Call main function
 window.onload = function () {
+  // Example 1
+  new QuickFileUp({
+    form: ".quick_file_up__form",
+    input: ".quick_file_up__input",
+  });
+
+  // Example 2
   const config = {
     form: ".another",
     input: ".another_input",
@@ -267,9 +274,4 @@ window.onload = function () {
     parentForInputHidden: ".hidden_area",
   };
   new QuickFileUp(config);
-
-  new QuickFileUp({
-    form: ".quick_file_up__form",
-    input: ".quick_file_up__input",
-  });
 };
