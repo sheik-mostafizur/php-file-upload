@@ -154,7 +154,6 @@ class QuickFileUp {
       .quick_file_up__uploaded-area {
         max-height: 232px;
         overflow-y: scroll;
-        padding: 20px;
       }
       .quick_file_up__uploaded-area.onprogress {
         max-height: 150px;
@@ -235,8 +234,10 @@ class QuickFileUp {
         </div>
 
         <header class="quick_file_up__header">FILE UPLOAD SERVICE</header>
-        <section class="quick_file_up__progress-area"></section>
-        <section class="quick_file_up__uploaded-area"></section>
+        <div style="padding: 20px">
+          <section class="quick_file_up__progress-area"></section>
+          <section class="quick_file_up__uploaded-area"></section>
+        </div>
       </div>
     </div>
 `;
