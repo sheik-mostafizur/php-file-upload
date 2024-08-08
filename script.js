@@ -68,8 +68,109 @@ class QuickFileUp {
 
         <header class="quick_file_up__header">FILE UPLOAD SERVICE</header>
         <div style="padding: 20px">
-          <section class="quick_file_up__progress-area"></section>
-          <section class="quick_file_up__uploaded-area"></section>
+          <section class="quick_file_up__progress-area">
+            <li class="progress-area__row">
+              <div>
+                <svg
+                  fill="#6990F1"
+                  width="30px"
+                  height="30px"
+                  viewBox="0 0 1920 1920"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g fill-rule="evenodd">
+                      <path
+                        d="M1185.471 0v564.706h564.705V1920H169V0h1016.471Zm-225.77 1355.294H507.823v113.054h451.878v-113.054Zm338.711-225.881H507.823v112.94h790.589v-112.94Zm-112.941-225.884H507.823v112.941h677.648V903.529Zm225.882-225.882h-903.53v112.941h903.53V677.647ZM959.701 451.878H507.823v112.941h451.878V451.878Z"
+                      ></path>
+                      <path
+                        d="M1667.673 345.623c30.38 30.268 51.84 66.635 65.619 106.164h-434.937V16.851c39.53 13.779 75.897 35.35 106.278 65.619l263.04 263.153Z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="progress-area__content">
+                <div class="progress-area__details">
+                  <span class="progress-area__name">cloud.gif • Uploading</span>
+                  <span class="progress-area__percent">25%</span>
+                </div>
+                <div class="progress-area__progress-bar">
+                  <div class="progress-area__progress" style="width: 25%"></div>
+                </div>
+              </div>
+            </li>
+          </section>
+          <section class="quick_file_up__uploaded-area">
+            <li class="uploaded-area__row">
+              <div class="uploaded-area__content upload">
+                <div>
+                  <svg
+                    fill="#6990F1"
+                    width="30px"
+                    height="30px"
+                    viewBox="0 0 1920 1920"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g fill-rule="evenodd">
+                        <path
+                          d="M1185.471 0v564.706h564.705V1920H169V0h1016.471Zm-225.77 1355.294H507.823v113.054h451.878v-113.054Zm338.711-225.881H507.823v112.94h790.589v-112.94Zm-112.941-225.884H507.823v112.941h677.648V903.529Zm225.882-225.882h-903.53v112.941h903.53V677.647ZM959.701 451.878H507.823v112.941h451.878V451.878Z"
+                        ></path>
+                        <path
+                          d="M1667.673 345.623c30.38 30.268 51.84 66.635 65.619 106.164h-434.937V16.851c39.53 13.779 75.897 35.35 106.278 65.619l263.04 263.153Z"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <div class="uploaded-area__details">
+                  <span class="uploaded-area__name">index.html • Uploaded</span>
+                  <span class="uploaded-area__size">12 KB</span>
+                </div>
+              </div>
+              <div>
+                <svg
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g id="Interface / Check">
+                      <path
+                        id="Vector"
+                        d="M6 12L10.2426 16.2426L18.727 7.75732"
+                        stroke="#6990F1"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </li>
+          </section>
         </div>
       </div>
 `;

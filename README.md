@@ -1,5 +1,10 @@
 # Quick File Upload
 
+## Preview
+
+![Without Showing Modal](./readme-example-image-1.png)
+![With Showing Modal](./readme-example-image-2.png)
+
 ## How you can use in you project?
 
 - Download or clone this repository
