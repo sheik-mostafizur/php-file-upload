@@ -92,6 +92,16 @@
   justify-content: space-between;
 }
 
+.quick_file_up__uploaded-area .uploaded-area__row.failed {
+  background-color: #ffe9e9;
+}
+.quick_file_up__uploaded-area
+  .uploaded-area__row.failed
+  .uploaded-area__details
+  * {
+  color: #dd302f !important;
+}
+
 .quick_file_up__progress-area .progress-area__row .progress-area__content {
   width: 100%;
   margin-left: 15px;
